@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { CiMenuBurger } from 'react-icons/ci';
 // import { FaChevronDown } from 'react-icons/fa';
 // import { BsArrow90DegRight } from 'react-icons/bs';
@@ -21,11 +20,11 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Check scroll position on load
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -44,7 +43,7 @@ const Navbar = () => {
   };
 
   const handleLinkClick = (e, path) => {
-    if (path !== '/#') {
+    if (path !== "/#") {
       e.preventDefault();
       navigate(path);
     }
@@ -52,15 +51,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-zinc-900 font-roboto w-full z-50" style={{ background: '#2b0318' }}>
+    <nav
+      className="bg-zinc-900 font-roboto w-full z-50"
+      style={{ background: "#2b0318" }}
+    >
       <div className="flex justify-between items-center h-20">
         <div className="flex items-center pl-2 md:pl-20">
           <Link to="/" className="text-2xl font-bold text-zinc-200">
-            <img
-              src=""
-              alt=" Logo"
-              className="h-16 w-28 md:h-24 md:w-36"
-            />
+            <img src="" alt=" Logo" className="h-16 w-28 md:h-24 md:w-36" />
           </Link>
           <div className="ml-3 text-white">
             <span className="text-2xl font-bold">klasse.de Akademie</span>
@@ -72,25 +70,33 @@ const Navbar = () => {
           className="text-2xl text-zinc-200 md:hidden"
           onClick={toggleMobileMenu}
         >
-          {isMobileMenuOpen  }
+          {isMobileMenuOpen}
         </button>
 
         <div className="text-center text-white text-xl font-bold pt-5 mr-5 hidden md:block">
           – Learn German <br />
-          <span className="text-white text-sm font-semibold">Build Your Career. Explore Globe.</span>
+          <span className="text-white text-sm font-semibold">
+            Build Your Career. Explore Globe.
+          </span>
         </div>
       </div>
 
       {/* Yellow strip bar */}
       <div
         className={`py-2 bg-yellow-500 hidden md:block transition-all duration-300 ${
-          isScrolled ? 'fixed w-full top-0 left-0 z-40' : 'relative'
+          isScrolled ? "fixed w-full top-0 left-0 z-40" : "relative"
         }`}
       >
         <ul className="flex flex-wrap justify-center gap-10">
-          {[{ name: 'Home', path: '/' }, { name: 'About Us', path: '/about' },{ name: 'Courses', path: '/courses' },{ name: 'CareerConsulting', path: '/carrier' },{ name: 'Testimonials', path: '/testimonials' }].map((link, index) => (
+          {[
+            { name: "Home", path: "/" },
+            { name: "About Us", path: "/about" },
+            { name: "Courses", path: "/courses" },
+            { name: "CareerConsulting", path: "/carrier" },
+            { name: "Testimonials", path: "/testimonials" },
+          ].map((link, index) => (
             <li key={index}>
-              <Link 
+              <Link
                 to={link.path}
                 className="text-zinc-900 font-bold hover:text-orange-500 transition duration-300"
                 onClick={closeMobileMenu}
@@ -194,7 +200,10 @@ const Navbar = () => {
           className="absolute top-0 left-0 w-full bg-zinc-900 text-white z-40 md:hidden"
         >
           <div className="space-y-1 px-5 pb-3 pt-5">
-            {[{ name: 'Home', path: '/home' }, { name: 'Events', path: '/events' }].map((link, index) => (
+            {[
+              { name: "Home", path: "/home" },
+              { name: "Events", path: "/events" },
+            ].map((link, index) => (
               <Link
                 key={index}
                 to={link.path}
@@ -206,57 +215,59 @@ const Navbar = () => {
             ))}
 
             {/* Mobile Dropdowns */}
-            {[{
-              name: 'Management',
-              items: [
-                { label: 'About Us', path: '/aboutMore' },
-                { label: 'Accreditation', path: '/#' },
-                { label: 'Governing Body', path: '/#' },
-                { label: 'Boards of Governors', path: '/members' },
-              ]
-            },
-            {
-              name: 'Academic',
-              items: [
-                { label: 'Courses', path: '/Courses' },
-                { label: 'Academic Calendar', path: '/#' },
-                { label: 'Academic TimeTable', path: '/#' },
-                { label: 'Committee', path: '/faculty' },
-                { label: 'AntiRagging Committee', path: '/#' },
-                { label: 'Events', path: '/events' },
-              ]
-            },
-            {
-              name: 'Departments',
-              items: [
-                { label: 'LLB', path: '/#' },
-                { label: 'LLM', path: '/#' },
-                { label: 'Diploma in Legal Studies', path: '/#' },
-              ]
-            },
-            {
-              name: 'Admission',
-              items: [
-                { label: 'Courses Offered', path: '/courses' },
-                { label: 'Eligibility Criteria', path: '/#' },
-                { label: 'Scholarship', path: '/#' },
-                { label: 'Fee Structure', path: '/#' },
-                { label: 'Admission Cell', path: '/#' },
-                { label: 'Admission Enquiry', path: '/#' },
-              ]
-            },
-            {
-              name: 'Facility',
-              items: [
-                { label: 'Library', path: '/library' },
-                { label: 'Hostel', path: '/hostel' },
-                { label: 'Gymnasium', path: '/#' },
-                { label: 'Playground', path: '/facility/playground' },
-                { label: 'Computer Lab', path: '/facility/computer-lab' },
-                { label: 'Transportation', path: '/facility/transportation' },
-                { label: 'Magazine', path: '/facility/magazine' },
-              ]
-            }].map((dropdown, index) => (
+            {[
+              {
+                name: "Management",
+                items: [
+                  { label: "About Us", path: "/aboutMore" },
+                  { label: "Accreditation", path: "/#" },
+                  { label: "Governing Body", path: "/#" },
+                  { label: "Boards of Governors", path: "/members" },
+                ],
+              },
+              {
+                name: "Academic",
+                items: [
+                  { label: "Courses", path: "/Courses" },
+                  { label: "Academic Calendar", path: "/#" },
+                  { label: "Academic TimeTable", path: "/#" },
+                  { label: "Committee", path: "/faculty" },
+                  { label: "AntiRagging Committee", path: "/#" },
+                  { label: "Events", path: "/events" },
+                ],
+              },
+              {
+                name: "Departments",
+                items: [
+                  { label: "LLB", path: "/#" },
+                  { label: "LLM", path: "/#" },
+                  { label: "Diploma in Legal Studies", path: "/#" },
+                ],
+              },
+              {
+                name: "Admission",
+                items: [
+                  { label: "Courses Offered", path: "/courses" },
+                  { label: "Eligibility Criteria", path: "/#" },
+                  { label: "Scholarship", path: "/#" },
+                  { label: "Fee Structure", path: "/#" },
+                  { label: "Admission Cell", path: "/#" },
+                  { label: "Admission Enquiry", path: "/#" },
+                ],
+              },
+              {
+                name: "Facility",
+                items: [
+                  { label: "Library", path: "/library" },
+                  { label: "Hostel", path: "/hostel" },
+                  { label: "Gymnasium", path: "/#" },
+                  { label: "Playground", path: "/facility/playground" },
+                  { label: "Computer Lab", path: "/facility/computer-lab" },
+                  { label: "Transportation", path: "/facility/transportation" },
+                  { label: "Magazine", path: "/facility/magazine" },
+                ],
+              },
+            ].map((dropdown, index) => (
               <div key={index} className="space-y-1">
                 <div
                   className="px-5 py-2 text-white font-bold cursor-pointer flex gap-2"
@@ -346,17 +357,17 @@ export default Navbar;
 
 //   return (
 //     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-//       isScrolled 
-//         ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+//       isScrolled
+//         ? 'bg-white/95 backdrop-blur-md shadow-lg'
 //         : 'bg-white'
 //     }`}>
 //       {/* Top Bar */}
 //       <div className="bg-gradient-to-r from-gray-800 via-blue-900 to-indigo-900 text-white py-2 px-6">
 //         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm">
 //           <div className="flex items-center gap-4">
-//             <a href="tel:+919975648924" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
+//             <a href="tel:+919270941867" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
 //               <span>📞</span>
-//               <span className="hidden sm:inline">+91 99756 48924</span>
+//               <span className="hidden sm:inline">+91 92709 41867</span>
 //             </a>
 //             <a href="mailto:info@klasse-akademie.com" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
 //               <span>📧</span>
