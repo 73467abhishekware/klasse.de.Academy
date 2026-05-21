@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import { BsArrow90DegRight } from 'react-icons/bs';
 // import { BiDownArrow, BiRightArrow } from 'react-icons/bi';
 // import { RxDropdownMenu } from 'react-icons/rx';
+import Logo from "../logo.png";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -58,7 +59,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center h-20">
         <div className="flex items-center pl-2 md:pl-20">
           <Link to="/" className="text-2xl font-bold text-zinc-200">
-            <img src="" alt=" Logo" className="h-16 w-28 md:h-24 md:w-36" />
+            <img src={Logo} alt=" Logo" className="h-16 w-28 md:h-24 md:w-36" />
           </Link>
           <div className="ml-3 text-white">
             <span className="text-2xl font-bold">klasse.de Akademie</span>

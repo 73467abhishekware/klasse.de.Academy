@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'; 
-
+import React from "react";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Logo from "../logo.png";
 
 const Footer = () => {
   return (
@@ -9,37 +8,35 @@ const Footer = () => {
       <div className="container mx-auto px-5 text-center">
         {/* Logo and College Name */}
         <div className="mb-4">
-          <img src="" alt=" Logo" className="h-16 mx-auto mb-2" />
-          <h2 className="text-lg font-bold text-white">
-            klasse.de Akademie
-          </h2>
+          <img src={Logo} alt=" Logo" className="h-16 mx-auto mb-2" />
+          <h2 className="text-lg font-bold text-white">klasse.de Akademie</h2>
           <p className="text-sm text-zinc-400">
-           Learn German. Build Your Career. Explore Globe.
+            Learn German. Build Your Career. Explore Globe.
           </p>
         </div>
 
         {/* Social Media Links */}
         <div className="flex justify-center gap-6 mb-4">
-          <a 
-            href="https://facebook.com" 
+          <a
+            href="https://facebook.com"
             className="text-zinc-200 hover:text-orange-500 transition duration-300"
           >
             <FaFacebook size={24} />
           </a>
-          <a 
-            href="https://twitter.com" 
+          <a
+            href="https://twitter.com"
             className="text-zinc-200 hover:text-orange-500 transition duration-300"
           >
             <FaTwitter size={24} />
           </a>
-          <a 
-            href="https://instagram.com" 
+          <a
+            href="https://instagram.com"
             className="text-zinc-200 hover:text-orange-500 transition duration-300"
           >
             <FaInstagram size={24} />
           </a>
-          <a 
-            href="https://linkedin.com" 
+          <a
+            href="https://linkedin.com"
             className="text-zinc-200 hover:text-orange-500 transition duration-300"
           >
             <FaLinkedin size={24} />
@@ -48,7 +45,8 @@ const Footer = () => {
 
         {/* Copyright */}
         <p className="text-sm text-zinc-400">
-          &copy; {new Date().getFullYear()}klasse.de Akademie. All Rights Reserved.
+          &copy; {new Date().getFullYear()}klasse.de Akademie. All Rights
+          Reserved.
         </p>
       </div>
     </footer>

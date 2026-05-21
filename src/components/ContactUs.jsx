@@ -70,12 +70,12 @@ const ContactUs = () => {
                 info="+91 9270941867"
                 gradient="from-green-500 to-emerald-500"
               />
-              <ContactInfoCard
+              {/* <ContactInfoCard
                 icon="📍"
                 title="Visit Us"
                 info="Kolhapur, Maharashtra, India"
                 gradient="from-purple-500 to-pink-500"
-              />
+              /> */}
               <ContactInfoCard
                 icon="🌐"
                 title="Global Presence"
